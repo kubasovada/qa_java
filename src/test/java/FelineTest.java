@@ -1,20 +1,21 @@
-import com.example.Animal;
 import com.example.Feline;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
-
-import java.util.List;
+import org.junit.runners.Parameterized;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(MockitoJUnitRunner.class)
+//@RunWith(MockitoJUnitRunner.class)
+@RunWith(Parameterized.class)
 public class FelineTest {
+//  @Mock
+//  Animal animal;
 
-  @Mock
-  Animal animal;
+  private final int kittensCount;
+
+  public FelineTest(int kittensCount) {
+    this.kittensCount = kittensCount;
+  }
 
 
   @Test
@@ -25,6 +26,16 @@ public class FelineTest {
     assertEquals(expected, actual);
   }
 
+
+  @Parameterized.Parameters
+  public static Object[][] getKittensCount() {
+    return new Object[][] {
+            { 1},
+            { 2},
+            { 3},
+            {10}
+    };
+  }
   @Test
   public void getKittensReturnCorrectValue() {
     Feline feline = new Feline();
@@ -36,7 +47,7 @@ public class FelineTest {
   @Test
   public void getKittensWithCountReturnCorrectValue() {
     Feline feline = new Feline();
-    int kittensCount = 1;
+    //int kittensCount = 0;
     int expected = kittensCount;
     int actual = feline.getKittens(kittensCount);
     assertEquals(expected, actual);
