@@ -18,15 +18,6 @@ public class FelineTest {
 
 
   @Test
-  public void eatMeatReturnsCorrectValue() throws Exception {
-    Feline feline = new Feline();
-    Mockito.when(animal.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-    List<String> expected = List.of("Животные", "Птицы", "Рыба");
-    List<String> actual = feline.eatMeat();
-    assertEquals(expected, actual);
-  }
-
-  @Test
   public void getFamilyReturnsCorrectValue() {
     Feline feline = new Feline();
     String expected = "Кошачьи";
@@ -50,6 +41,15 @@ public class FelineTest {
     int actual = feline.getKittens(kittensCount);
     assertEquals(expected, actual);
   }
+
+//  @Test
+//  public void eatMeatReturnsCorrectValue() throws Exception {
+//    Feline feline = new Feline();
+//    Mockito.when(animal.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+//    List<String> expected = List.of("Животные", "Птицы", "Рыба");
+//    List<String> actual = feline.eatMeat();
+//    assertEquals(expected, actual);
+//  }
 
 
 }
